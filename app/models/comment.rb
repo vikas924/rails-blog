@@ -4,10 +4,10 @@ class Comment < ApplicationRecord
 
   attribute :text, :text
 
-  after_create :update_posts_counter
-  after_destroy :update_posts_counter
+  after_create :update_comments_counter
+  after_destroy :update_comments_counter
 
-  def update_posts_counter
+  def update_comments_counter
     post.update(comments_counter: post.comments.count)
   end
 end
