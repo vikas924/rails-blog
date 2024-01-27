@@ -33,7 +33,7 @@ RSpec.describe 'Posts', type: :request do
 
     it 'includes correct placeholder text in the response body' do
       get post_path(post)
-      expect(response.body).to include('Title')
+      expect(response.body).to include('<h4><span class="card-title">Post </span> <span>by John Doe</span></h4>')
     end
   end
 end

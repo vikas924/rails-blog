@@ -1,33 +1,43 @@
- <div class="container-sm" style="Margin-top: 20px">
-   <!-- app/views/posts/index.html.erb -->
+<div class="container-sm" style="Margin-top: 20px;">
+    <!-- app/views/posts/index.html.erb -->
    <%= render partial: 'shared/user', locals: { user: @user } %>
-  </div>
-  <div class="card border-success mb-3">
-    <div class="card-body text-success text-bg-light p-3">
+  <div class="card border-Secondary mb-3">
+    <div class="card-body text-Secondary text-bg-light p-3">
       <h5 class="card-title">Bio</h5>
       <p class="card-text"><%= @user.bio%></p>
+      <a href='<%=new_user_post_path(@user.id, @post)%>'>
+        <button type="button" class="btn btn-outline-primary">Create Post</button>
+      </a>
     </div>
   </div>
   <% @recent_posts.each do |post|%>
-    <div class="card border-success mb-3">
+    <div class="card border-Secondary mb-3">
       <div class="card-body text-success">
         <a href = <%= user_post_path(post.author.id, post.id) %> style="text-decoration: none;">
-          <h5 class="card-title">Post <%= post.title %></h5>
+          <h5 class="card-title">Post <%= @recent_posts.index(post) + 1%></h5>
         </a>
-        <p class="card-text">
-          <%= post.text %>
-        </p>
-        <div class= "card-text">
+        <p class="card-text"><%= post.text %></p>
+        <div class= "d-flex card-text" style="gap: 10px;">
+          <a href='<%= new_user_post_comment_path(user_id: post.author_id, post_id: post.id)%>' class="btn btn-primary mt-3">
+            <span>Comments</span>
+          </a>
+          <a class="btn btn-primary mt-3">
+            <%= form_for(post.likes.new, url: user_post_likes_path(post.author, post)) do |f| %>
+              <%= f.hidden_field :author_id, value: @current_user %>
+              <%= f.submit "Like", style: "background-color: transparent; border: none; color: white;" %>
+            <% end %>
+          <a/>
+        </div>
+        <div class= "card-text" style="float: right">
           <span class="card-text">Comments: <%= post.comment_counter%></span>
           <span class="card-text">Likes: <%= post.likes_counter%></span>
         </div>
       </div>
     </div>
   <% end %>
-  <%= will_paginate @recent_posts %>
   <div class="d-grid gap-2 col-6 mx-auto">
     <a href = '<%= user_posts_path(@user) %>'>
-      <button type="button" class="btn btn-outline-primary" disabled>see all posts</button>
+      <button type="button" class="btn btn-outline-primary" disabled>See All Posts</button>
     </div>
   </div>
   <br/>
