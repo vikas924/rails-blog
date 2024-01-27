@@ -28,7 +28,6 @@ RSpec.describe 'Users', type: :request do
     it 'returns http success' do
       # Create a user instance using ActiveRecord
       user = User.create(name: 'John Doe')
-      
       # Use the created user in your test
       get user_path(user)
       expect(response).to render_template(:show)
