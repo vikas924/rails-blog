@@ -7,9 +7,7 @@ RSpec.describe Comment, type: :model do
       post = Post.create(title: 'Title', author: user)
       comment = Comment.create(text: 'Text', user:, post:)
 
-      comment.send(:update_comments_counter)
-
-      result = post.comments_counter
+      result = post.comment_counter
 
       expect(result).to eq(1)
     end

@@ -24,7 +24,7 @@
           <%= post.text %>
         </p>
         <div class= "card-text" style="float: right">
-          <span class="card-text">Comments: <%= post.comments_counter%></span>
+          <span class="card-text">Comments: <%= post.comment_counter%></span>
           <span class="card-text">Likes: <%= post.likes_counter%></span>
         </div>
       </div>
@@ -32,7 +32,7 @@
         <% post.five_most_recent_comments.each do |comment|%>
           <div class="card mb-3" style="width: 100%;">
             <div class="card-body text-success text-bg-light p-3">
-              <p class = "m-0"><strong><%= comment.author.name%></strong>: 
+              <p class = "m-0"><strong><%= comment.user.name%></strong>: 
                 <%= comment.text%>
               </p>
             </div>
