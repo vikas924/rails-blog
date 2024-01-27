@@ -5,6 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @recent_posts = @user.three_most_recent_posts
+    @recent_posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 1)
   end
 end

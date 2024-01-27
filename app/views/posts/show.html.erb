@@ -3,7 +3,7 @@
     <div class="card-body text-success text-bg-light p-3">
       <div class="d-flex justify-content-between">
         <div>
-          <h4><span class="card-title">Post <%= @post_id %></span> <span>by <%= @post.author.name %></span></h4>
+          <h4><span class="card-title"><%= @post.title %> <%= @post_id %></span> <span>by <%= @post.author.name %></span></h4>
         </div>
         <div>
           <span class="card-text">Comments: <%= @post.comment_counter%></span>
