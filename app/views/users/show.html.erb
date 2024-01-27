@@ -1,1 +1,34 @@
-<h1>This is the show user section for testing</h1>
+ <div class="container-sm" style="Margin-top: 20px">
+   <!-- app/views/posts/index.html.erb -->
+   <%= render partial: 'shared/user', locals: { user: @user } %>
+  </div>
+  <div class="card border-success mb-3">
+    <div class="card-body text-success text-bg-light p-3">
+      <h5 class="card-title">Bio</h5>
+      <p class="card-text"><%= @user.bio%></p>
+    </div>
+  </div>
+  <% @recent_posts.each do |post|%>
+    <div class="card border-success mb-3">
+      <div class="card-body text-success">
+        <a href = <%= user_post_path(post.author.id, post.id) %> style="text-decoration: none;">
+          <h5 class="card-title">Post <%= post.title %></h5>
+        </a>
+        <p class="card-text">
+          <%= post.text %>
+        </p>
+        <div class= "card-text">
+          <span class="card-text">Comments: <%= post.comment_counter%></span>
+          <span class="card-text">Likes: <%= post.likes_counter%></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= will_paginate @recent_posts %>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <a href = '<%= user_posts_path(@user) %>'>
+      <button type="button" class="btn btn-outline-primary" disabled>see all posts</button>
+    </div>
+  </div>
+  <br/>
+</div>

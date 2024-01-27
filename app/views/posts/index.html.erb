@@ -1,1 +1,30 @@
-<h1>This is the posts file for testing</h1>
+<div style="margin: 20px 40px;">
+     <%= render partial: 'shared/user', locals: { user: @user } %>
+  <% @posts.each do |post|%>
+    <div class="card border-success mb-3">
+      <div class="card-body text-success">
+        <a href = <%= user_post_path(post.author.id, post.id) %> style="text-decoration: none;">
+          <h5 class="card-title">Post <%= post.title%></h5>
+        </a>
+        <p class="card-text">
+          <%= post.text %>
+        </p>
+        <div class= "card-text" style="float: right">
+          <span class="card-text">Comments: <%= post.comment_counter%></span>
+          <span class="card-text">Likes: <%= post.likes_counter%></span>
+        </div>
+      </div>
+      <% if post.comments.any? %>
+        <% post.five_most_recent_comments.each do |comment|%>
+          <div class="card mb-3" style="width: 100%;">
+            <div class="card-body text-success text-bg-light p-3">
+              <p class = "m-0"><strong><%= comment.user.name%></strong>: 
+                <%= comment.text%>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<div/>
