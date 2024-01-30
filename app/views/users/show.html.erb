@@ -14,7 +14,7 @@
     <div class="card border-Secondary mb-3">
       <div class="card-body text-success">
         <a href = <%= user_post_path(post.author.id, post.id) %> style="text-decoration: none;">
-          <h5 class="card-title">Post <%= @recent_posts.index(post) + 1%></h5>
+          <h5 class="card-title"> <%= post.title%></h5>
         </a>
         <p class="card-text"><%= post.text %></p>
         <div class= "d-flex card-text" style="gap: 10px;">
