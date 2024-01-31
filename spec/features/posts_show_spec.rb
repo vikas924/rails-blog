@@ -6,9 +6,9 @@ RSpec.feature 'Post Show', type: :feature do
 
   before do
     user.update(photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png')
-    Comment.create( user:, post:, text: 'hello Tom')
-    Comment.create( user:, post:, text: 'Thank You Tom')
-    Comment.create( user:, post:, text: 'Good afternoon Tom')
+    Comment.create(user:, post:, text: 'hello Tom')
+    Comment.create(user:, post:, text: 'Thank You Tom')
+    Comment.create(user:, post:, text: 'Good afternoon Tom')
     Like.create(user:, post:)
   end
 
