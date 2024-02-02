@@ -80,6 +80,11 @@ rspec
 - Twitter: [@vikas410190](https://twitter.com/vikas410190)
 - LinkedIn: [Vikas Singh](https://www.linkedin.com/in/vikas-singh-586a07132/)
 
+👤 **Molnar Emese**
+  - GitHub: [@Mesi21](https://github.com/Mesi21)
+  - Twitter: [@buksimesi21](https://twitter.com/buksimesi21)  
+  - LinkedIn: [LinkedIn] (https://www.linkedin.com/in/emesemesimolnar/)
+
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Search Functionality**
