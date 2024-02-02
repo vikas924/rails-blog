@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @post = Post.find(params[:post_id])
-    @user = @current_user
+    @user = current_user
   end
 
   def create
