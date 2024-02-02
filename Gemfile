@@ -29,6 +29,8 @@ gem 'jbuilder'
 ## Gemfile for Rails 3+, Sinatra, or Merb
 gem 'will_paginate', '~> 3.3.0'
 
+gem 'rubocop', '>= 1.0', '< 2.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '>= 4.0.1'
 
@@ -74,7 +76,6 @@ group :test do
   gem 'rails-controller-testing'
 end
 
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
 
 gem 'mailcatcher'
-
