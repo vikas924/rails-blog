@@ -56,5 +56,4 @@ RSpec.feature 'User Show', type: :feature do
 
     expect(page).to have_content("Number of posts: #{user1.posts_counter}")
   end
-
 end
