@@ -48,4 +48,13 @@ RSpec.feature 'User Show', type: :feature do
     actual_path = page.current_path.chomp('/')
     expect(actual_path).to eq(expected_path)
   end
+
+  scenario 'I can see the number of posts each user has written.' do
+    user1 = User.find_by(name: 'Tom')
+
+    visit user_path(user1)
+
+    expect(page).to have_content("Number of posts: #{user1.posts_counter}")
+  end
+
 end
