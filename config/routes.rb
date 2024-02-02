@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, path: 'auth',
-                     path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }
+  path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }
   devise_scope :user do
-    get '/users/sign_out', to: 'devise/sessions#destroy'
+    get '/auth/logout', to: 'devise/sessions#destroy'
     root to: 'devise/sessions#new'
   end
   
