@@ -2,9 +2,9 @@
   <div class="card mb-3" style="width: 100%;">
     <div class="card-body text-success text-bg-light p-3">
       <div class="d-flex justify-content-between">
-         <h4 class="card-title PostAuthor"><%= @post.title %> by <%= @post.author.name %></h4>
+        <h4 class="card-title PostAuthor">Post by <%= @post_id %><%= @post.author.name %></h4>
         <div>
-          <span class="card-text">Comments: <%= @post.comment_counter%></span>
+          <span class="card-text">Comments: <%= @post.comments_counter%></span>
           <span class="card-text">Likes: <%= @post.likes_counter%></span>
         </div>
       </div>
@@ -15,6 +15,9 @@
       </p>
       <p class="card-text PostTitle">Title: <%= @post.title %></p>
       <p class="card-text">Text: <%= @post.text %></p>
+      <% if @post.author.id == current_user.id || current_user.role == 'admin' %>
+        <%= button_to 'Delete Post', user_post_path(@post.author, @post), method: :delete, class: 'btn btn-danger' %>
+      <% end %>
     </div>
   </div>
   <% if @post.comments.any? %>
@@ -24,13 +27,15 @@
           <p class = "m-0 CommentsAuthor"><strong><%= comment.user.name%></strong>:
             <%= comment.text%>
           </p>
-           <p class="card-text">
+          <% if can? :destroy, comment %>
+            <%= button_to 'Delete', user_post_comment_path(@post.author, @post, comment), method: :delete, class: 'btn btn-light text-danger btn-sm'%>
+          <% end %>
+          <p class="card-text">
           <small class="text-muted" style='font-size: 50%;'>
             <%= @post.created_at.strftime("%B %d, %Y, %T") %>
           </small>
-        </p>
         <% end %>
       </div>
     </div>
   <% end %>
-</div>
+<div/>

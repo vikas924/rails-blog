@@ -29,6 +29,8 @@ gem 'jbuilder'
 ## Gemfile for Rails 3+, Sinatra, or Merb
 gem 'will_paginate', '~> 3.3.0'
 
+gem 'rubocop', '>= 1.0', '< 2.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '>= 4.0.1'
 
@@ -51,6 +53,7 @@ gem 'faker'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'cancancan', '~> 3.5'
   gem 'capybara'
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
@@ -75,3 +78,8 @@ group :test do
 end
 
 gem 'devise', '~> 4.9'
+<<<<<<< HEAD
+=======
+
+gem 'mailcatcher'
+>>>>>>> 5512d1688d96d1c42d385d288522d217a1626fd4

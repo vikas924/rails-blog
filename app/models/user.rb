@@ -11,6 +11,7 @@ class User < ApplicationRecord
   attribute :photo, :string
   attribute :bio, :text
   attribute :posts_counter, :integer, default: 0
+  attribute :role, :string, default: 'user'
 
   validates :name, presence: true
   validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
