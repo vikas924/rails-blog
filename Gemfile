@@ -74,4 +74,4 @@ group :test do
   gem 'rails-controller-testing'
 end
 
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
