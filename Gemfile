@@ -78,8 +78,5 @@ group :test do
 end
 
 gem 'devise', '~> 4.9'
-<<<<<<< HEAD
-=======
 
 gem 'mailcatcher'
->>>>>>> 5512d1688d96d1c42d385d288522d217a1626fd4
